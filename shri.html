@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHRI RAM M R - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffffcc;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #0056b3;
+    }
+
+    header {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #007BFF, #00B4D8);
+      color: white;
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid white;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 15px;
+      margin-top: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #007BFF;
+      margin-bottom: 25px;
+      border-left: 5px solid #007BFF;
+      padding-left: 15px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #007BFF, #00B4D8);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: scale(1.1);
+    }
+
+    .timeline {
+      border-left: 3px solid #007BFF;
+      padding-left: 40px;
+      position: relative;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -23px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: #007BFF;
+      border-radius: 50%;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.2rem;
+      color: #0056b3;
+    }
+
+    .timeline-item span {
+      display: block;
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .project {
+      background-color: #f9fcff;
+      border-left: 5px solid #007BFF;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project h4 {
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-info a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+      color: #555;
+    }
+
+    /* Animation on scroll */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .animate-on-scroll.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .resume-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #007BFF, #00B4D8);
+      color: #fff !important;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .resume-section {
+      text-align: center;  
+      margin-top: 30px;    
+    }
+
+
+    .resume-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+      background: linear-gradient(135deg, #00B4D8, #007BFF);
+    }
+
+    /* Fix Certifications section to match other sections */
+.certifications {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.certifications h2 {
+  color: #007BFF;
+  border-left: 5px solid #007BFF;
+  padding-left: 15px;
+  margin-bottom: 25px;
+}
+
+.cert-item {
+  background-color: #f9fcff;
+  border-left: 5px solid #007BFF;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cert-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Resume button fix */
+.resume-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.resume-section a {
+  display: inline-block;
+  background: linear-gradient(135deg, #007BFF, #00B4D8);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.resume-section a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+  background: linear-gradient(135deg, #00B4D8, #007BFF);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="animate__animated animate__fadeIn">
+    <img src="shriram.jpg" alt="Profile Photo">
+    <h1>SHRI RAM M R</h1>
+    <p>
+      I’m a cybersecurity student passionate about ethical hacking, digital forensics, and system security. I aim to contribute to national cybersecurity and strengthen digital defenses through my technical skills and curiosity.
+    </p>
+  </header>
+
+  <!-- Skills -->
+  <section id="skills" class="animate-on-scroll">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill">Python</div>
+      <div class="skill">Kali Linux</div>
+      <div class="skill">Networking Basics</div>
+      <div class="skill">Cybersecurity</div>
+      <div class="skill">Generative AI</div>
+      <div class="skill">Data Analysis</div>
+      <div class="skill">Public Speaking</div>
+      <div class="skill">Presentation</div>
+      <div class="skill">Communication</div>
+      <div class="skill">CLient Services Management</div>
+      <div class="skill">Microsoft Office</div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="animate-on-scroll">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Vidyaa Vikas College of Engineering and Technology</h3>
+        <span>BE. CSE (Cyber Security) | Sep 2023 - May 2027</span>
+      </div>
+      <div class="timeline-item">
+        <h3>SPK GEMS Schools</h3>
+        <span>Senior Secondary and Higher Secondary (CBSE) | June 2014 - Mar 2023</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="animate-on-scroll">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Client Manager - Rexora Solutions (Part-time)</h3>
+        <span>Handled client interactions and managed services efficiently.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="animate-on-scroll">
+    <h2>Projects</h2>
+    <div class="project">
+      <h4>Social Engineering: The Human Element of Cyber Attack</h4>
+      <p>Presented a conceptual paper on human vulnerabilities in cyber attacks and awareness strategies to prevent social engineering threats.</p>
+    </div>
+    <div class="project">
+      <h4>Financial and Business Analysis of Sun Pharma</h4>
+      <p>Conducted a comprehensive data-driven analysis of Sun Pharma’s operations, financial health, and market strategies using online research and financial datasets.</p>
+    </div>
+    <div class="project">
+      <h4>Forecasting House Prices Accurately Using Smart Regression Techniques</h4>
+      <p>Built regression models on the Ames Housing dataset to predict house prices, using Linear Regression and Random Forest. Random Forest performed best, demonstrating the power of    data-driven real estate forecasting. Currently available as a Colab notebook.</p>
+    </div>
+  </section>
+
+ <section id="achievements" class="animate-on-scroll">
+  <h2>Achievements & Certifications</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Foundation of Cybersecurity Course by Google</h3>
+      <p>Completed via Coursera – built a strong base in cybersecurity fundamentals and principles.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Automate Cybersecurity Tasks with Python</h3>
+      <p>Google – Coursera course focusing on using Python to streamline cybersecurity workflows.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Strategies for Cloud Security Risk Management</h3>
+      <p>Google Cloud Skills Boost – learned advanced methods for identifying and mitigating cloud risks.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Put It All Together: Prepare for a Cloud Security Analyst Role</h3>
+      <p>Google Cloud Skills Boost – covered real-world case studies for cloud defense and monitoring.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Introduction to Security Principles in Cloud Computing</h3>
+      <p>Google Cloud Skills Boost – gained understanding of secure cloud architectures and IAM policies.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Detect, Respond, and Recover from Cloud Cybersecurity Attacks</h3>
+      <p>Google Cloud Skills Boost – explored incident detection, response, and recovery strategies.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Cloud Security Risks: Identify and Protect Against Threats</h3>
+      <p>Google Cloud Skills Boost – hands-on learning in identifying cloud threats and mitigation tactics.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Itronix Cybersecurity Analyst Professional Certification</h3>
+      <p>Earned certification demonstrating proficiency in analyzing and defending digital systems.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Mastercard Cybersecurity Job Simulation</h3>
+      <p>Forage – simulated professional cybersecurity tasks and risk mitigation strategies.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>15-day Internship in Ethical Hacking</h3>
+      <p>Extol Tech Solutions – practical exposure to penetration testing and vulnerability analysis.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Conceptual Paper Presentation – Social Engineering</h3>
+      <p>Presented at Paavai College – focused on human factors in cyber attacks and awareness building.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="animate-on-scroll">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:mrshriram19@gmail.com">mrshriram19@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919080707934">+91 9080707934</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/shriram19" target="_blank">linkedin.com/in/shriram19</a></p>
+      <p>GitHub: <a href="https://github.com/Shriram1906" target="_blank">github.com/Shriram1906</a></p>
+    <div class="resume-section">
+  <a href="Resume_ShriramMR.pdf" download class="resume-btn">Download Resume</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 SHRI RAM M R | All Rights Reserved
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
